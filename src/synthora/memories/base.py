@@ -14,8 +14,20 @@
 # limitations under the License.
 # =========== Copyright 2024 @ SYNTROPIX-AI.org. All Rights Reserved. ===========
 #
+from abc import ABC, abstractmethod
 
-from synthora.memories.list_memory import ListMemory
+from synthora.messages.base import BaseMessage
 
 
-__all__ = ["ListMemory"]
+class BaseMemory(ABC):
+    @abstractmethod
+    def append(self, message: BaseMessage) -> None:
+        pass
+
+    @abstractmethod
+    def clear(self) -> None:
+        pass
+
+    @abstractmethod
+    def get_all(self) -> list[BaseMessage]:
+        pass

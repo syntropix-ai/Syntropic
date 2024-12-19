@@ -16,6 +16,14 @@
 #
 
 repos:
+  - repo: https://github.com/arkinmodi/add-license-header
+    rev: v2.2.0
+    hooks:
+        - id: add-license-header
+          args:
+              - --license-file
+              - licenses/license_template.txt
+              - --exit-zero-if-unsupported
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: 'v0.3.5'
     hooks:
@@ -41,11 +49,3 @@ repos:
         args: [--strict]
         additional_dependencies: [types-requests, types-tqdm, types-tabulate, types-click, types-filelock, types-Pillow, rich, pyarrow-stubs, pydantic, aiohttp]
         exclude: ^tests/
-  - repo: https://github.com/arkinmodi/add-license-header
-    rev: v2.2.0
-    hooks:
-        - id: add-license-header
-          args:
-              - --license-file
-              - licenses/license_template.txt
-              - --exit-zero-if-unsupported

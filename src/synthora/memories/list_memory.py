@@ -15,7 +15,19 @@
 # =========== Copyright 2024 @ SYNTROPIX-AI.org. All Rights Reserved. ===========
 #
 
-from synthora.memories.list_memory import ListMemory
+from synthora.memories.base import BaseMemory
+from synthora.messages.base import BaseMessage
 
 
-__all__ = ["ListMemory"]
+class ListMemory(BaseMemory):
+    def __init__(self) -> None:
+        self.messages: list[BaseMessage] = []
+
+    def append(self, message: BaseMessage) -> None:
+        self.messages.append(message)
+
+    def clear(self) -> None:
+        self.messages = []
+
+    def get_all(self) -> list[BaseMessage]:
+        return self.messages
